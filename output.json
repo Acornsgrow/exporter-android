@@ -15,6 +15,22 @@
         {
             "invoke": "radii.pr",
             "write_to": "res/values/exported_radii.xml"
+        },
+        {
+            "invoke": "compose_colors.pr",
+            "write_to": "color/ColorTokens.kt"
+        },
+        {
+            "invoke": "compose_gradients.pr",
+            "write_to": "color/GradientTokens.kt"
+        },
+        {
+            "invoke": "compose_typography.pr",
+            "write_to": "type/TypeTokens.kt"
+        },
+        {
+            "invoke": "compose_styleguide.pr",
+            "write_to": "Styleguide.kt"
         }
     ]
 }

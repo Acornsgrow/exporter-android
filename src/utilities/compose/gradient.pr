@@ -1,0 +1,10 @@
+{[ let token = context.token.value /]}
+val {[ inject "token_name" context context /]}: Brush = Brush.{{ getBrushType(token) }}(
+    colorStops = arrayOf(
+        {[ for stop in token.stops ]}
+        {{ stop.position }}f to {[ inject "color" context stop.color /]},
+        {[/]}
+    ),
+    start = Offset(x = {{ toFixed(token.from.x) }}f, y = {{ toFixed(token.from.y) }}f),
+    end = Offset(x = {{ toFixed(token.to.x) }}f, y = {{ toFixed(token.to.y) }}f),
+)

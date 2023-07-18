@@ -1,0 +1,11 @@
+package com.acorns.android.design
+
+import com.acorns.android.design.color.ColorTokens
+import com.acorns.android.design.color.GradientTokens
+import com.acorns.android.design.type.TypeTokens
+
+object Styleguide {
+    val Colors = ColorTokens
+    val Gradients = GradientTokens
+    val Typography = TypeTokens
+}
