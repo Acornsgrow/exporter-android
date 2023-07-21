@@ -1,8 +1,9 @@
-package com.acorns.android.design
+package {[ inject "package" context this /]}
 
-import com.acorns.android.design.color.ColorTokens
-import com.acorns.android.design.color.GradientTokens
-import com.acorns.android.design.type.TypeTokens
+
+import {[ inject "package" context this /]}.color.ColorTokens
+import {[ inject "package" context this /]}.color.GradientTokens
+import {[ inject "package" context this /]}.type.TypeTokens
 
 object Styleguide {
     val Colors = ColorTokens
