@@ -6,7 +6,6 @@ object Typeface {
     object {{ typefaceName }} {
         {[ for font in family ]}{[ inject "Font.kt" context font /]}
 
-
         {[/]}
 
         @Stable
