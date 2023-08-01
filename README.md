@@ -76,6 +76,65 @@ Once you have run the exporter against your design system, you can start using t
 
 In order to make the Supernova Android exporter available for your organization so you can start generating code from your design system, please follow the installation guide in our [developer documentation](https://developers.supernova.io/using-exporters/installing-exporters).
 
+## Development
+
+To build and contribute, there are a few steps to get started:
+
+1. Clone the repository
+    ```bash
+    cd ~/Developer/
+    git clone https://github.com/Acornsgrow/exporter-android.git
+    ```
+2. Set up the `upstream` remote just in case you need to update the fork
+    ```bash
+    git remote add upstream https://github.com/Supernova-Studio/exporter-android.git
+    ```
+3. Verify the upstream repository is correct. The command and example output is below:
+    ```bash
+    git remote -v
+    ```
+    **Output**
+    ```bash
+    origin  git@github.com:Acornsgrow/exporter-android.git (fetch)
+    origin  git@github.com:Acornsgrow/exporter-android.git (push)
+    upstream        https://github.com/Supernova-Studio/exporter-android.git (fetch)
+    upstream        https://github.com/Supernova-Studio/exporter-android.git (push)
+    ```
+4. Checkout to `main` and make sure it's up-to-date
+    ```bash
+    git checkout main && git pull
+    ```
+5. Install all `npm` packages and build the JS
+    ```bash
+    npm install && npm run build
+    ```
+6. Open VS Code and install the Supernova extension
+    - [Supernova Documentation](https://developers.supernova.io/latest/introduction-OZ286CLI) &rarr; Building Exporters 101 &rarr; [Overview](https://developers.supernova.io/latest/building-exporters/building-exporters-101/overview-eMkaO08W)
+    - Install VS Code Supernova Extension &mdash; [VS Extension Store URL](https://marketplace.visualstudio.com/items?itemName=SupernovaIO.pulsar-vsc-extension) | [Install](vscode:extension/SupernovaIO.pulsar-vsc-extension)
+7. Configure the extension
+    1. In a web browser, login to [Supernova](https://cloud.supernova.io)
+    2. Generate an API token
+        1. Go to [Profile Settings](https://cloud.supernova.io/user-profile/general) in the top profile menu
+        2. Go to the [Authentication](https://cloud.supernova.io/user-profile/authentication) tab
+        3. Click on "Generate Token"
+        4. Give the token a recognizable name (e.g. `Development Token`)
+        5. Click "Confirm"
+        6. Copy the generated Token value and store it in a secure place, such as a 1Password vault
+        7. Once it is copied and stored securely, you can safely close the dialog
+    3. Return to VS Code and open the Command Palette
+    4. Run the following command and paste the API token you generated in the previous step and press `Enter` &#9166;
+        ```
+        > Supernova: Supernova Log In
+        ```
+    1. Open the Supernova Extension panel by clicking its icon in the leftside rail bar
+    2. Click "Select design system"
+    3. Follow the prompts and select the correct design system and brand.
+8. Run the exporter by running the following command in the Command Palette, or by clicking the "&#9655;" in the Supernova Extension panel
+    ```bash
+    > Supernova: Run Exporter
+    ```
+9. Verify the exporter ran properly by checking the "Output" panel, and by inspecting the `.build` folder
+
 ## Reporting Bugs or Requesting Features
 
 In order to faciliate easy communication and speed up delivery of fixes and features for this exporter, we require everyone to log all issues and feature requests through the issue tracking of this repository. 
