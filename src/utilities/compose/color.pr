@@ -1,2 +1,0 @@
-{[ const argb = hexToHexARGB(context.hex) /]}
-Color(color = {{ argb.full }})

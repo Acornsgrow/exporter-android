@@ -1,6 +1,0 @@
-{[ let fontName = context.subfamily.camelcased(true) /]}
-{[ let resourceName = [context.family, context.subfamily].join(" ").snakecased() /]}
-{[ let fontWeight = getFontWeight(context) /]}
-{[ let fontStyle = ternary(ds.isFontItalic(context), "Italic", "Normal") /]}
-@Stable
-val {{ fontName }} = Font(R.font.{{ resourceName }}, weight = FontWeight.{{ fontWeight }}, style = FontStyle.{{ fontStyle }})

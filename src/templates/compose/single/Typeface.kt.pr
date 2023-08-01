@@ -1,0 +1,22 @@
+object Typeface {
+    {[ let families = context.groupByFamily() /]}
+    {[ let i = 0 /]}
+    {[ for family in families.values() ]}
+    {[ let typefaceName = families.keys()[i].camelcased(true) /]}
+    object {{ typefaceName }} {
+        {[ for font in family ]}{[ inject "Font.kt" context font /]}
+
+
+        {[/]}
+
+        @Stable
+        val Family = FontFamily(
+            {[ for font in family ]}
+            {[ let fontName = font.subfamily.camelcased(true) /]}
+            {{ fontName }},
+            {[/]}
+        )
+    }
+    {[ i = (i + 1) /]}
+    {[/]}
+}
