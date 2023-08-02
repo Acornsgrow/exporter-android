@@ -1,0 +1,2 @@
+{[ const argb = hexARGB(context) /]}
+Color(color = {{ argb.full }})

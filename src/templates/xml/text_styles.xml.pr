@@ -10,8 +10,8 @@
   {[ let fullTokenGroupPath = createFullTokenGroupPath(typographyTokenGroup) /]}
   {[ const typographyTokenInGroups = ds.tokensByGroupId(typographyTokenGroup.id) /]}
   {[ for typographyToken in typographyTokenInGroups ]}
-    {[ const fullTokenPath = arrayConcat(fullTokenGroupPath, typographyToken.name) /]}
-    {[ const fullTokenName = arrayJoin(fullTokenPath, " ") /]}
+    {[ const fullTokenPath = fullTokenGroupPath.aconcat(typographyToken.name) /]}
+    {[ const fullTokenName = fullTokenPath.ajoin(" ") /]}
     
     {[ if (typographyToken.description && typographyToken.description !== "") ]}
     <!-- 
@@ -33,12 +33,12 @@
         <item name="android:fontFamily">@font/{{ fontName }}</item>
           {[ let fontStyles = [] /]}
           {[ if ds.isFontItalic(font) ]}
-            {[ fontStyles = arrayConcat(fontStyles, "italic") /]}
+            {[ fontStyles = fontStyles.aconcat("italic") /]}
           {[/]}
           {[ if ds.isFontItalic(font) ]}
-            {[ fontStyles = arrayConcat(fontStyles, "bold") /]}
+            {[ fontStyles = fontStyles.aconcat("bold") /]}
           {[/]}
-          {[ let textStyle = arrayJoin(fontStyles, "|") /]}
+          {[ let textStyle = fontStyles.ajoin("|") /]}
         <item name="android:textStyle">{{ (textStyle.count() === 0) ? "normal" : textStyle}}</item>
         {[/]}
     </style>
@@ -47,4 +47,4 @@
 {[/]}
 
 </resources>
-{[ inject "fonts" context fontsMap /]}
+{[ inject "fonts.xml" context fontsMap /]}

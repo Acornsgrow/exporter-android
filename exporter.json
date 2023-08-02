@@ -1,10 +1,11 @@
 {
-    "id": "io.supernova.android",
+    "id": "io.acorns.android",
     "name": "Android",
     "description": "Android token and style exporter\n\nThe Android exporter allows you to produce production-ready code for all product styles (such as colors) defined inside your design system in such a way that you can immediately use them to style your application elements. Specifically, this exporter automates the coding of color definitions, text styles, fonts, radii, and measures. The exporter will generate a file per style type.\n\nCheck out README.md in the Github repository for more details on usage.",
     "source_dir": "src",
     "version": "1.5.1",
     "usesBrands": true,
+    "usesThemes": false,
     "tags": [
         "Android",
         "Tokens",
@@ -17,10 +18,22 @@
     "config": {
         "output": "output.json",
         "sources": "sources.json",
-        "js": "src/functions.js"
+        "js": "dist/js/bundle.js"
     },
     "engines": {
         "pulsar": "1.0.0",
         "supernova": "1.0.0"
+    },
+    "contributes": {
+        "configuration": [
+            {
+                "key": "packageName",
+                "type": "string",
+                "label": "Package Name",
+                "description": "The root package name that should be prefixed for all Compose files packages",
+                "category": "Compose",
+                "default": "com.example.android"
+            }
+        ]
     }
 }

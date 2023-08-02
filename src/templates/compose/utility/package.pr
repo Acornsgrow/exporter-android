@@ -1,0 +1,1 @@
+{{ exportConfiguration().packageName }}

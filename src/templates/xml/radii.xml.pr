@@ -7,8 +7,8 @@
   {[ let fullTokenGroupPath = createFullTokenGroupPath(radiusTokenGroup) /]}
   {[ const radiusTokenInGroups = ds.tokensByGroupId(radiusTokenGroup.id) /]}
   {[ for radiusToken in radiusTokenInGroups ]}
-    {[ const fullTokenPath = arrayConcat(fullTokenGroupPath, radiusToken.name) /]}
-    {[ const fullTokenName = arrayJoin(fullTokenPath, " ") /]}
+    {[ const fullTokenPath = fullTokenGroupPath.aconcat(radiusToken.name) /]}
+    {[ const fullTokenName = fullTokenPath.ajoin(" ") /]}
     
     {[ if (radiusToken.description && radiusToken.description !== "") ]}
     <!-- 

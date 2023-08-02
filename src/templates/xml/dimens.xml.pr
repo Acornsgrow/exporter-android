@@ -7,8 +7,8 @@
   {[ let fullTokenGroupPath = createFullTokenGroupPath(measureTokenGroup) /]}
   {[ const measureTokenInGroups = ds.tokensByGroupId(measureTokenGroup.id) /]}
   {[ for measureToken in measureTokenInGroups ]}
-    {[ const fullTokenPath = arrayConcat(fullTokenGroupPath, measureToken.name) /]}
-    {[ const fullTokenName = arrayJoin(fullTokenPath, " ") /]}
+    {[ const fullTokenPath = fullTokenGroupPath.aconcat(measureToken.name) /]}
+    {[ const fullTokenName = fullTokenPath.ajoin(" ") /]}
 
     {[ if (measureToken.description && measureToken.description !== "") ]}
     <!-- 
