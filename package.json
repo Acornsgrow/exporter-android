@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "npx webpack --mode=production --watch",
     "build": "npx webpack --config webpack.config.js --mode='production'",
-    "lint": "eslint \"./src/**/*.{js,ts}\""
+    "lint": "eslint \"./src/**/*.{js,ts}\"",
+    "prettier": "prettier \"./src/**/*.{js,ts}\" --write"
   },
   "author": "Acorns Grow Inc.",
   "sideEffects": false,
