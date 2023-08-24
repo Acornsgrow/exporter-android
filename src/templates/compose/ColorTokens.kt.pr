@@ -22,7 +22,7 @@ object ColorTokens {
     {{ token.description.asComment("        ") }}
     {[/]}
     @Stable
-    val {[ inject "token_name" context this /]}: Color = {[ inject "Color.kt" context token.value /]}
+    val {[ inject "token_name" context this /]} = {[ inject "Color.kt" context token.value /]}
 
     {[/]}
     {[/]}

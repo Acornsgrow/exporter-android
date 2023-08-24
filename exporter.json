@@ -29,7 +29,7 @@
         "label": "Package Name",
         "description": "The root package name that should be prefixed for all Compose files packages",
         "category": "Compose",
-        "default": "com.example.android",
+        "default": "com.acorns.component.base",
         "inputType": "plain",
         "isMultiline": false
       }
