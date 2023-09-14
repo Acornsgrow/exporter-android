@@ -18,19 +18,19 @@
     },
     {
       "invoke": "ColorTokens.kt.pr",
-      "write_to": "java/com/acorns/component/base/color/ColorTokens.kt"
+      "write_using": "color_tokens_path.pr"
     },
     {
       "invoke": "GradientTokens.kt.pr",
-      "write_to": "java/com/acorns/component/base/color/GradientTokens.kt"
+      "write_using": "gradient_tokens_path.pr"
     },
     {
       "invoke": "TypeTokens.kt.pr",
-      "write_to": "java/com/acorns/component/base/type/TypeTokens.kt"
+      "write_using": "type_tokens_path.pr"
     },
     {
       "invoke": "Styleguide.kt.pr",
-      "write_to": "java/com/acorns/component/base/Styleguide.kt"
+      "write_using": "styleguide_path.pr"
     }
   ]
 }
