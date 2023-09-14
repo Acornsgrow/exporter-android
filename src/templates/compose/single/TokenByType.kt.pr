@@ -1,0 +1,11 @@
+{[ const token = context /]}
+{[ switch token.tokenType ]}
+{[ case "Color"]}
+{[ inject "Color.kt" context token.value /]}
+{[ case "Typography" ]}
+{[ inject "TextStyle.kt" context token.value /]}
+{[ case "Font"]}
+{[ inject "Font.kt" context token.value /]}
+{[ case "Gradient"]}
+{[ inject "Brush.kt" context token.value /]}
+{[/]}

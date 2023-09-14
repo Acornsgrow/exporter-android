@@ -1,4 +1,4 @@
-package {[ inject "package" context this /]}.color
+package {{ getPackageName(false) }}.tokens
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.geometry.Offset
@@ -21,7 +21,7 @@ object GradientTokens {
     {{ token.description.asComment("        ") }}
     {[/]}
     @Stable
-    {[ inject "Brush.kt" context this /]}
+    val {{ getFullTokenName(token).camelcased(true) }} = {[ inject "TokenByType.kt" context token /]}
 
     {[/]}
     {[/]}

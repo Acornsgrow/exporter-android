@@ -1,20 +1,17 @@
 object Typeface {
-    {[ let families = context.groupByFamily() /]}
+    {[ let fontsByFamily = context.groupByFamily() /]}
     {[ let i = 0 /]}
-    {[ for family in families.values() ]}
-    {[ let typefaceName = families.keys()[i].camelcased(true) /]}
+    {[ for familyGroup in fontsByFamily.values() ]}
+    {[ let typefaceName = fontsByFamily.keys()[i].camelcased(true) /]}
     object {{ typefaceName }} {
-        {[ for font in family ]}{[ inject "Font.kt" context font /]}
+        {[ for font in familyGroup ]}
+        @Stable
+        val {{ font.subfamily.camelcased(true) }} = {[ inject "TokenByType.kt" context font /]}
 
         {[/]}
 
         @Stable
-        val Family = FontFamily(
-            {[ for font in family ]}
-            {[ let fontName = font.subfamily.camelcased(true) /]}
-            {{ fontName }},
-            {[/]}
-        )
+        val Family = {[ inject "FontFamily.kt" context familyGroup /]}
     }
     {[ i = (i + 1) /]}
     {[/]}

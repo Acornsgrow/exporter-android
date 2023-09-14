@@ -1,12 +1,10 @@
-{[ let typeName = context.name.camelcased(true) /]}
-{[ let typeToken = context.value /]}
+{[ let typeToken = context /]}
 {[ let typeface = typeToken.font.family.camelcased(true) /]}
 {[ let fontWeight = fontWeightCompose(typeToken.font) /]}
 {[ let fontStyle = ternary(ds.isFontItalic(typeToken.font), "Italic", "Normal") /]}
 {[ let fontSize = typeToken.fontSize.measure /]}
 {[ let lineHeight = typeToken.lineHeight.measure /]}
-@Stable
-val {{ typeName }} = TextStyle(
+TextStyle(
     fontFamily = Typeface.{{ typeface }}.Family,
     fontWeight = FontWeight.{{ fontWeight }},
     fontStyle = FontStyle.{{ fontStyle }},
