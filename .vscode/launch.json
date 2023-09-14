@@ -1,21 +1,22 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Build",
-            "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [ "run-script", "build" ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Build & Watch",
-            "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [ "run-script", "watch" ]
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Build",
+      "cwd": "${workspaceFolder}",
+      "postDebugTask": "Run Supernova Exporter",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "build"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Build & Watch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "watch"]
+    }
+  ]
 }
