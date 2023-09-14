@@ -1,0 +1,32 @@
+{[ const brand = ds.currentBrand() /]}
+{[ const tokens = ds.allTokens(brand.id) /]}
+{[ const tokensByComponent = groupByComponent(tokens) /]}
+{[ map tokensByComponent to componentName componentTokens ]}
+{[ if componentName ]}
+{[ const fileName = "java/".suffixed(getPackageName(true).suffixed(componentName.extended("/component/", "Tokens.kt"))) /]}
+{[ emit file fileName ]}
+package {{ getPackageName(false) }}.component
+
+import androidx.compose.runtime.Stable
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+
+object {{ componentName }}Tokens {
+    {[for token in componentTokens ]}
+    {[ if token && token.value && isDefined(token.value.referencedToken) ]}
+    {[ const referencedToken = token.value.referencedToken /]}
+    {[ if referencedToken ]}
+    val {{ getComponentTokenName(token).camelcased(false) }} = Styleguide.{{ referencedToken?.tokenType ?? "" }}.{{ getFullTokenName(referencedToken).camelcased(true) }}
+    {[ else ]}
+    val {{ getComponentTokenName(token).camelcased(false) }} = {[ inject "TokenByType.kt" context token /]}
+
+    {[/]}
+    {[/]}
+    {[/]}
+}
+
+val Styleguide.Component.{{ componentName }} get() = {{ componentName }}Tokens
+{[/]}
+{[/]}
+{[/]}
