@@ -1,4 +1,4 @@
-package {[ inject "package" context this /]}.color
+package {{ getPackageName(false) }}.tokens
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
@@ -7,12 +7,12 @@ import androidx.compose.ui.graphics.Color
 object ColorTokens {
     {[ let brand = ds.currentBrand() /]}
     {[ for group in ds.tokenGroupsOfType("Color", brand.id) ]}
-    {[ if !(group.tokenIds.count() === 0 && group.subgroups.count() === 0) ]}
-    {[ if !group.isRoot ]}
+    {[ const tokens = ds.tokensByGroupId(group.id).filterComponentTokens() /]}
+    {[ if tokens.count() !== 0 ]}
 
     // {{ group.name }}
     {[/]}
-    {[ const tokens = ds.tokensByGroupId(group.id) /]}
+    {[ if !(tokens.count() === 0 && group.subgroups.count() === 0) ]}
     {[ if (group.tokenIds.count() !== 0 && (tokens.first() && tokens.first().description === 0)) ]}
 
     {[/]}
@@ -22,7 +22,7 @@ object ColorTokens {
     {{ token.description.asComment("        ") }}
     {[/]}
     @Stable
-    val {[ inject "token_name" context this /]} = {[ inject "Color.kt" context token.value /]}
+    val {{ getFullTokenName(token).camelcased(true) }} = {[ inject "TokenByType.kt" context token /]}
 
     {[/]}
     {[/]}

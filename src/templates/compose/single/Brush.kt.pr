@@ -1,5 +1,5 @@
-{[ let token = context.token.value /]}
-val {[ inject "token_name" context context /]} = Brush.{{ brushType(token) }}(
+{[ let token = context /]}
+Brush.{{ brushType(token) }}(
     colorStops = arrayOf(
         {[ for stop in token.stops ]}
         {{ stop.position }}f to {[ inject "Color.kt" context stop.color /]},

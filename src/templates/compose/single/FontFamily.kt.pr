@@ -1,0 +1,6 @@
+FontFamily(
+    {[ for font in context ]}
+    {[ let fontName = font.subfamily.camelcased(true) /]}
+    {{ fontName }},
+    {[/]}
+)

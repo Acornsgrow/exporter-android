@@ -1,0 +1,2 @@
+{[ const tokenType = context /]}
+{[ inject "java_root" context this /]}/tokens/{{ tokenType }}Tokens.kt
