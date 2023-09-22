@@ -86,7 +86,7 @@ export const getComponentTokenName = createPulsarFunction(
   'getComponentTokenName',
   (token: Token) =>
     token.parent?.path
-      ?.slice(3)
+      ?.slice(1) // Remove component name from path
       ?.concat(token.parent.name, token.name)
       ?.join(' '),
 )
