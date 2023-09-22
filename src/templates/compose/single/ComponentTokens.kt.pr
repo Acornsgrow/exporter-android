@@ -11,7 +11,9 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import {{ getPackageName(false) }}.Styleguide
 
+{[ inject "generated_code_warning" context this /]}
 object {{ componentName }}Tokens {
     {[for token in componentTokens ]}
     {[ if token && token.value && isDefined(token.value.referencedToken) ]}
@@ -26,7 +28,7 @@ object {{ componentName }}Tokens {
     {[/]}
 }
 
-val Styleguide.Component.{{ componentName }} get() = {{ componentName }}Tokens
+val Styleguide.{{ componentName }} get() = {{ componentName }}Tokens
 {[/]}
 {[/]}
 {[/]}
