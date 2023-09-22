@@ -12,6 +12,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
+{[ inject "generated_code_warning" context this /]}
 object {{ componentName }}Tokens {
     {[for token in componentTokens ]}
     {[ if token && token.value && isDefined(token.value.referencedToken) ]}
