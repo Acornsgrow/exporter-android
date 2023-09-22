@@ -11,5 +11,5 @@ object Styleguide {
     val Typography = TypeTokens
 }
 
-typealias {{ ds.currentBrand().name }} = Styleguide
+typealias {{ ds.currentBrand().name.camelcased(true) }} = Styleguide
 {[ inject "ComponentTokens.kt" context this /]}
