@@ -22,19 +22,20 @@ export const asComment = createPulsarTransformer(
 
 export const hexARGB = createPulsarFunction(
   'hexARGB',
-  ({ hex }: ColorTokenValue) => {
-    const asPart = (start: number, end: number) =>
-      hex.substring(start, end).toUpperCase()
-    const alpha = asPart(6, 2)
-    const red = asPart(0, 2)
-    const green = asPart(2, 2)
-    const blue = asPart(4, 2)
+  ({ a, r, g, b }: ColorTokenValue) => {
+    const toHex = (part: number) =>
+      ((part < 16 ? '0' : '') + part.toString(16)).toUpperCase()
+    const parts = {
+      alpha: toHex(a),
+      red: toHex(r),
+      green: toHex(g),
+      blue: toHex(b),
+    }
+    const hex = `0x${parts.alpha}${parts.red}${parts.green}${parts.blue}`
     return {
-      alpha: alpha,
-      red: red,
-      green: green,
-      blue: blue,
-      full: `0x${alpha}${red}${green}${blue}`,
+      ...parts,
+      full: hex,
+      value: parseInt(hex, 16),
     }
   },
 )
