@@ -27,4 +27,24 @@ object ColorTokens {
     {[/]}
     {[/]}
     {[/]}
+
+    val all = mapOf(
+    {[ let allTokens = ds.tokensByType("Color", brand.id).filterComponentTokens() /]}
+    {[ for token in allTokens ]}
+        "{{ getFullTokenName(token) }}" to {{ getFullTokenName(token).camelcased(true) }},
+    {[/]}
+    )
+
+    val groups = mapOf(
+    {[ for group in ds.tokenGroupsOfType("Color", brand.id) ]}
+    {[ let groupTokens = ds.tokensByGroupId(group.id).filterComponentTokens() /]}
+    {[ if (groupTokens.count() !== 0) ]}
+        "{{ group.name }}" to mapOf(
+            {[ for token in groupTokens ]}
+            "{{ token.name }}" to {{ getFullTokenName(token).camelcased(true) }},
+            {[/]}
+        ),
+    {[/]}
+    {[/]}
+    )
 }
