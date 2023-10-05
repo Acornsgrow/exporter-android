@@ -1,22 +1,6 @@
 {
   "blueprints": [
     {
-      "invoke": "colors.xml.pr",
-      "write_to": "res/values/colors.xml"
-    },
-    {
-      "invoke": "dimens.xml.pr",
-      "write_to": "res/values/dimens.xml"
-    },
-    {
-      "invoke": "text_styles.xml.pr",
-      "write_to": "res/values/text_styles.xml"
-    },
-    {
-      "invoke": "radii.xml.pr",
-      "write_to": "res/values/radii.xml"
-    },
-    {
       "invoke": "ColorTokens.kt.pr",
       "write_using": "color_tokens_path.pr"
     },
