@@ -1,0 +1,2 @@
+{[ const tokenType = context /]}
+res/values/{{ tokenType }}.xml
