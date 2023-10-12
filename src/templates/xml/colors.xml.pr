@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+{[ inject "generated_code_warning_xml" context this /]}
 <resources>
 {[ const brand = ds.currentBrand() /]}
 {[ const colorTokensTree = ds.tokenGroupTreeByType("Color", brand.id) /]}
