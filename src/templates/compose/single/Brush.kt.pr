@@ -5,6 +5,4 @@ Brush.{{ brushType(token) }}(
         {{ stop.position }}f to {[ inject "Color.kt" context stop.color /]},
         {[/]}
     ),
-    start = Offset(x = {{ token.from.x.toFixed() }}f, y = {{ token.from.y.toFixed() }}f),
-    end = Offset(x = {{ token.to.x.toFixed() }}f, y = {{ token.to.y.toFixed() }}f),
 )
